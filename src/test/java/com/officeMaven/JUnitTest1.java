@@ -99,10 +99,11 @@ public class JUnitTest1 {
         Select select2 = new Select(tarihYil);
         select2.selectByVisibleText("1999");
         Thread.sleep(3000);
+
+        //  11. Cinsiyeti secin
         WebElement cinsiyetSec = driver.findElement(By.xpath("//input[@id='u_1_5']"));
         cinsiyetSec.click();
 
-        // git init
         // 12. Isaretlediginiz cinsiyetin secili, diger cinsiyet kutusunun secili olmadigini test edin.
 
         WebElement digerCinsiyet = driver.findElement(By.xpath("//input[@id='u_1_4']"));
