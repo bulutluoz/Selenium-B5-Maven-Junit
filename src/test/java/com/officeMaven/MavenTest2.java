@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class MavenTest2 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -38,7 +38,7 @@ public class MavenTest2 {
         WebElement passwordBox = driver.findElement(By.id("password"));
         passwordBox.sendKeys("secret_sauce");
 
-
+        Thread.sleep(5000);
         //4. Login tusuna basin
         WebElement loginButonu = driver.findElement(By.cssSelector("#login-button"));
         loginButonu.click();
@@ -52,20 +52,20 @@ public class MavenTest2 {
         ilkUrun.click();
 
         //6. Add to Cart butonuna basin
-
+        Thread.sleep(5000);
         WebElement addToCart = driver.findElement(By.xpath("//button[@class='btn_primary btn_inventory']"));
         addToCart.click();
         //7. Alisveris sepetine tiklayin
         //<span class="fa-layers-counter shopping_cart_badge">1</span>
         WebElement sepet = driver.findElement(By.xpath("//span[@class='fa-layers-counter shopping_cart_badge']"));
         sepet.click();
-
+        Thread.sleep(5000);
         //8. Sectiginiz urunun basarili olarak sepete eklendigini control edin
         WebElement sepettekkiUrunAdi=driver.findElement(By.partialLinkText("Sauce Labs Backpack"));
         if (sepettekkiUrunAdi.getText().equals(ilkUrunAdi)){
             System.out.println("Sectiginiz urun ile sepetteki urun ayni. Test PASS");
         } else System.out.println("Sectiginiz urun ile sepetteki urun farkli. Test FAILED");
-
+        Thread.sleep(5000);
         //9. Sayfayi kapatin
         driver.close();
     }
